@@ -1,5 +1,6 @@
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -10,24 +11,35 @@ public class Main
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter something: ");
         String input = scanner.nextLine();
-        System.out.printf("You Entered: %s", input);
+        System.out.printf("You Entered: \"%s\"%n", input);
         if(!StringUtils.isNumeric(input))
         {
-            System.out.printf("%s is not a number%n", input);
+            System.out.printf("\"%s\" is not a number%n", input);
         }
         else
         {
-            System.out.printf("%s is a number%n", input);
+            System.out.printf("\"%s\" is a number%n", input);
         }
-        int length = input.length();
+//        int length = input.length();
         String[] arr = input.split(" ");
+
+        StringBuilder newSentence = new StringBuilder("");
 
         for(String word : arr)
         {
             if(Character.isUpperCase(word.charAt(0)))
             {
+                word = StringUtils.upperCase(word);
+                word = word.substring(0,1).toLowerCase() + word.substring(1);
+                newSentence.append(word).append(" ");
 
             }
+            else
+            {
+                newSentence.append(word).append(" ");
+            }
         }
+        System.out.println(newSentence);
+        System.out.println(StringUtils.reverse(input));
     }
 }
