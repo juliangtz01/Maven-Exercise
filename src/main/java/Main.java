@@ -17,7 +17,7 @@ public class Main
         {
             System.out.printf("\"%s\" is a number%n", input);
         }
-//        int length = input.length();
+
         String[] arr = input.split(" ");
 
         StringBuilder newSentence = new StringBuilder("");
